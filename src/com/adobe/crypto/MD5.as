@@ -33,7 +33,8 @@
 package com.adobe.crypto {
 	
 	import com.adobe.utils.IntUtil;
-	import flash.utils.ByteArray;	
+	import flash.utils.ByteArray;
+	import flash.utils.Endian;
 	/**
 	 * The MD5 Message-Digest Algorithm
 	 *
@@ -178,7 +179,8 @@ package com.adobe.crypto {
 				c += cc;
 				d += dd;
 			}
-			digest = new ByteArray()
+			digest = new ByteArray();
+			digest.endian = Endian.LITTLE_ENDIAN;
 			digest.writeInt(a);
 			digest.writeInt(b);
 			digest.writeInt(c);
